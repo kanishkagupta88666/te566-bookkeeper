@@ -21,7 +21,7 @@ def hosted(tmp_path, monkeypatch):
 
 
 def app():
-    return AppTest.from_file(str(ROOT / "app.py"), default_timeout=30)
+    return AppTest.from_file(str(ROOT / "bookkeeping_app.py"), default_timeout=30)
 
 
 def books(session_dir, at):

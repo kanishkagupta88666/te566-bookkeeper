@@ -45,7 +45,7 @@ VIEW = {"width": 1280, "height": 900}
 def start_app():
     env = dict(os.environ, BOOKKEEPER_DB=str(db.db_path()))
     proc = subprocess.Popen(
-        [sys.executable, "-m", "streamlit", "run", str(ROOT / "app.py"), "--server.port", str(PORT),
+        [sys.executable, "-m", "streamlit", "run", str(ROOT / "bookkeeping_app.py"), "--server.port", str(PORT),
          "--server.headless", "true"],
         cwd=ROOT, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT,
     )
@@ -414,7 +414,8 @@ def run_tests() -> str:
 
 
 def zip_code():
-    include = ["app.py", "ui.py", "requirements.txt", "README.md", ".streamlit/config.toml"]
+    include = ["bookkeeping_app.py", "ui.py", "requirements.txt", "requirements-dev.txt", "README.md",
+               ".streamlit/config.toml"]
     for folder in ("bookkeeper", "views", "tests", "scripts"):
         include += [str(p.relative_to(ROOT)) for p in sorted((ROOT / folder).glob("*.py"))]
     with zipfile.ZipFile(ZIP_PATH, "w", zipfile.ZIP_DEFLATED) as z:

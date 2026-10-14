@@ -1,6 +1,6 @@
 """ENG/TE 566 Computer Program — small-business bookkeeper.
 
-Run with:  streamlit run app.py
+Run with:  streamlit run bookkeeping_app.py
 """
 import streamlit as st
 
