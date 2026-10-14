@@ -1,0 +1,24 @@
+# environments and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# databases are created at runtime, never committed
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# generated submission artifacts (PDF, code zip, screenshots)
+submission/
+
+# course handouts are the instructor's material, not ours to publish
+/*.pdf
+
+# secrets and local tooling
+.streamlit/secrets.toml
+.env
+.claude/

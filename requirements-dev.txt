@@ -1,0 +1,5 @@
+# Tests and the screenshot/PDF script (not needed to run the app)
+-r requirements.txt
+pytest==9.1.1
+playwright==1.63.0
+pillow==12.3.0
