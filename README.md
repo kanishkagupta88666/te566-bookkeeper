@@ -7,8 +7,24 @@ a purchase, a payroll run) and the program keeps the books: every transaction po
 double-entry journal entry, and the income statement, balance sheet, cash flow statement and
 inventory are recomputed from that ledger every time they are shown.
 
+## Live Application
+
+**[Launch the bookkeeping demo →](https://te566-bookkeeper-financeproject.streamlit.app/)**
+
+https://te566-bookkeeper-financeproject.streamlit.app/
+
+No sign-in or installation is needed. Two things to know about the hosted demo:
+
+- **Each visitor has an isolated workspace.** Your transactions and Reset Demo affect only your
+  own set of books, never another visitor's.
+- **Hosted data is temporary.** A workspace is lost when the hosted app restarts or goes to sleep,
+  and is deleted after 24 hours. Run the program locally for storage that persists.
+
+If the app has been idle it may take up to a minute to wake.
+
 ## Contents
 
+- [Live Application](#live-application)
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
 - [Technology Stack](#technology-stack)
@@ -414,10 +430,12 @@ unless the program was started with `BOOKKEEPER_ISOLATE_SESSIONS=1`.
 
 ## Streamlit Deployment
 
-The program can be hosted on Streamlit Community Cloud with no code changes and no secrets.
+The program is deployed on Streamlit Community Cloud at
+https://te566-bookkeeper-financeproject.streamlit.app/ with no code changes and no secrets.
 
 | Setting | Value |
 |---|---|
+| Public URL | https://te566-bookkeeper-financeproject.streamlit.app/ |
 | Repository | `kanishkagupta88666/te566-bookkeeper` |
 | Branch | `main` |
 | Main file path | `bookkeeping_app.py` |
@@ -425,8 +443,8 @@ The program can be hosted on Streamlit Community Cloud with no code changes and 
 | Python version | 3.11 recommended (Advanced settings); 3.10 or newer required |
 | Secrets | None |
 
-Steps: sign in at share.streamlit.io with GitHub, choose **Create app**, and enter the settings
-above. An app that was deployed while the entry point was still named `app.py` must be pointed
+To deploy a copy: sign in at share.streamlit.io with GitHub, choose **Create app**, and enter the
+settings above. An app that was deployed while the entry point was still named `app.py` must be pointed
 at `bookkeeping_app.py`; if the main file cannot be edited in the app's settings, delete the app
 and deploy it again.
 
@@ -440,11 +458,15 @@ the page returns to the same books. This turns on automatically on Community Clo
 the app restarts or goes to sleep, and are deleted after 24 hours. Run the program locally for
 storage that persists.
 
-After deploying, check the public URL with:
+Check the deployment with:
 
 ```bash
-python scripts/verify_deployment.py https://<your-app>.streamlit.app
+python scripts/verify_deployment.py https://te566-bookkeeper-financeproject.streamlit.app
 ```
+
+This check was run against the public URL on 2026-10-13 from a browser with no signed-in
+account: the app loaded, the three required transactions produced the documented figures, a
+refresh kept the books, and a second visitor's books were unaffected.
 
 ## Limitations and Scope
 
